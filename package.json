@@ -1,6 +1,6 @@
 {
   "name": "test-on-heroku",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Test your project on heroku",
   "main": "index.js",
   "scripts": {
