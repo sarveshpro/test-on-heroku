@@ -1,0 +1,28 @@
+{
+  "name": "test-on-heroku",
+  "version": "1.0.0",
+  "description": "Test your project on heroku",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test",
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarveshwarge/test-on-heroku.git"
+  },
+  "keywords": [
+    "heroku",
+    "github",
+	"github-actions"
+  ],
+  "author": "sarveshwarge",
+  "bugs": {
+    "url": "https://github.com/sarveshwarge/test-on-heroku/issues"
+  },
+  "homepage": "https://github.com/sarveshwarge/test-on-heroku",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.0"
+  }
+}
