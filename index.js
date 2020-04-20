@@ -15,7 +15,7 @@ const deploy = ({ dontuseforce, app_name, branch, usedocker, dockerHerokuProcess
   const force = !dontuseforce ? "--force" : "";
 
   if (usedocker) {
-    execSync(`heroku container:push ${dockerHerokuProcessType} --manifest --app ${app_name}`);
+    execSync(`heroku container:push ${dockerHerokuProcessType} --app ${app_name} --manifest`);
     execSync(`heroku container:release ${dockerHerokuProcessType} --app ${app_name}`);
   } else {
     if (appdir === "") {
@@ -71,7 +71,8 @@ try {
 
   execSync(createCatFile(heroku));
   console.log("Created and wrote to ~./netrc");
-
+  execSync("heroku update beta");
+  execSync("heroku plugins:install @heroku-cli/plugin-manifest");
   execSync("heroku login");
   if (heroku.usedocker) {
     execSync("heroku container:login");
