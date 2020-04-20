@@ -15,7 +15,7 @@ const deploy = ({ dontuseforce, app_name, branch, usedocker, dockerHerokuProcess
   const force = !dontuseforce ? "--force" : "";
 
   if (usedocker) {
-    execSync(`heroku container:push ${dockerHerokuProcessType} --app ${app_name}`);
+    execSync(`heroku container:push ${dockerHerokuProcessType} --manifest --app ${app_name}`);
     execSync(`heroku container:release ${dockerHerokuProcessType} --app ${app_name}`);
   } else {
     if (appdir === "") {
