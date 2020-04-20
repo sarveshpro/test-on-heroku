@@ -15,7 +15,7 @@ const deploy = ({ dontuseforce, app_name, branch, usedocker, dockerHerokuProcess
   const force = !dontuseforce ? "--force" : "";
 
   if (usedocker) {
-    execSync(`heroku container:push ${dockerHerokuProcessType} --app ${app_name} --manifest`);
+    execSync(`heroku container:push ${dockerHerokuProcessType} --app ${app_name}`);
     execSync(`heroku container:release ${dockerHerokuProcessType} --app ${app_name}`);
   } else {
     if (appdir === "") {
@@ -36,7 +36,7 @@ const addRemote = ({ app_name, buildpack }) => {
     execSync(
       "heroku create " +
         app_name +
-        (buildpack ? " --buildpack " + buildpack : "")
+        (buildpack ? " --buildpack " + buildpack : "")+" --manifest"
     );
     console.log("Successfully created a new heroku app");
   }
